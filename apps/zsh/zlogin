@@ -1,0 +1,3 @@
+# like .zprofile but runs after .zshrc
+
+# Don't use already using .zprofile

@@ -1,0 +1,21 @@
+# .zprofile is for login shells. It is basically the same as .zlogin except that it's sourced before .zshrc whereas .zlogin is sourced after .zshrc. According to the zsh documentation, ".zprofile is meant as an alternative to .zlogin for ksh fans; the two are not intended to be used together, although this could certainly be done if desired."
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# For zsh completions
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+# For python virtualenvwrapper.sh
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+export WORKON_HOME=~/.virtualenvs
+mkdir -p $WORKON_HOME
+export VIRTUALENVWRAPPER_PYTHON=$(pyenv which python3)
+. ~/.pyenv/versions/3.10.1/bin/virtualenvwrapper.sh
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/hcbowman/Library/Application Support/JetBrains/Toolbox/scripts"
+
+# DEBUG
+#echo ".zprofile ran"

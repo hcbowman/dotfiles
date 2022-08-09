@@ -12,6 +12,7 @@
 
 - clean:
     $HOME:
-        force: true
+        # Only dead links that point to somewhere within the dotfiles directory are removed unless the force option is set to true
+        force: false # Was set to true, I changed it to be safe
     $HOME/.config:
         recursive: true

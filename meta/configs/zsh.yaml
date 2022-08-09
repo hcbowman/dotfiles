@@ -1,0 +1,4 @@
+- link:
+    $HOME/.zshenv: apps/zsh/zshenv
+    $HOME/.zprofile: apps/zsh/zprofile
+    $HOME/.zshrc: apps/zsh/zshrc
