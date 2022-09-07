@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Mon Aug  8 18:50:13 2022
+# Make data base, printed on Tue Sep  6 20:57:00 2022
 
 # Variables
 
@@ -20,6 +20,8 @@ make: *** No rule to make target `all'.  Stop.
 ?F = $(notdir $?)
 # environment
 VIRTUALENVWRAPPER_PROJECT_FILENAME = .project
+# environment
+NVM_INC = /Users/hcbowman/.nvm/versions/node/v18.0.0/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
@@ -45,17 +47,25 @@ INFOPATH = /opt/homebrew/share/info:
 # environment
 P9K_SSH = 0
 # environment
+NVM_COMPLETION = true
+# environment
 VSCODE_CWD = /
 # environment
-PATH = /opt/homebrew/opt/openjdk/bin:/Users/hcbowman/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/hcbowman/.cargo/bin:/Users/hcbowman/Library/Application Support/JetBrains/Toolbox/scripts:/Users/hcbowman/Library/Application Support/cloud-code/installer/google-cloud-sdk/bin:/Users/hcbowman/google-cloud-sdk/bin
+PATH = /Users/hcbowman/Library/Application Support/cloud-code/installer/google-cloud-sdk/bin:/Users/hcbowman/.emacs.d/bin:/opt/homebrew/opt/openjdk/bin:/Users/hcbowman/.nvm/versions/node/v18.0.0/bin:/Users/hcbowman/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/hcbowman/.cargo/bin:/Users/hcbowman/Library/Application Support/JetBrains/Toolbox/scripts:/Users/hcbowman/google-cloud-sdk/bin
+# environment
+NVM_LAZY_LOAD = true
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
+NVM_BIN = /Users/hcbowman/.nvm/versions/node/v18.0.0/bin
+# environment
 VIRTUALENVWRAPPER_PYTHON = /Users/hcbowman/.pyenv/versions/3.10.1/bin/python3
 # environment
 ELECTRON_RUN_AS_NODE = 1
+# environment
+PYENV_ROOT = /Users/hcbowman/.pyenv
 # environment
 LDFLAGS = -L/opt/homebrew/opt/readline/lib
 # default
@@ -65,11 +75,11 @@ CLOUDSDK_METRICS_ENVIRONMENT = cloudcode.vscode
 # environment
 VIRTUALENVWRAPPER_HOOK_DIR = /Users/hcbowman/.virtualenvs
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.GCrx3BRRj8/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.sbjiGK31dR/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-CLOUDSDK_METRICS_ENVIRONMENT_VERSION = 1.19.0
+CLOUDSDK_METRICS_ENVIRONMENT_VERSION = 1.20.1
 # environment
 PWD = /Users/hcbowman/.dotfiles
 # environment
@@ -77,7 +87,7 @@ HOMEBREW_CELLAR = /opt/homebrew/Cellar
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
-MANPATH = /opt/homebrew/share/man::
+MANPATH = /Users/hcbowman/.nvm/versions/node/v18.0.0/share/man:/opt/homebrew/share/man::
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -85,13 +95,15 @@ PYENV_SHELL = zsh
 # environment
 HOME = /Users/hcbowman
 # default
-MAKEFILEPATH := /Applications/Xcode-beta.app/Contents/Developer/Makefiles
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/hcbowman/Library/Application Support/Code - Insiders/CachedData/b0895f9fcc5b49587a2b187a92bbe6d7efae35fa
+VSCODE_CODE_CACHE_PATH = /Users/hcbowman/Library/Application Support/Code - Insiders/CachedData/daf5eb22623fb2cc586453147fc4dab98cf10b1d
 # environment
 LOGNAME = hcbowman
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+NVM_CD_FLAGS = -q
 # environment
 ZSH = /Users/hcbowman/.oh-my-zsh
 # environment
@@ -117,7 +129,7 @@ LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
-MAKE_COMMAND := /Applications/Xcode-beta.app/Contents/Developer/usr/bin/make
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
 # default
 .VARIABLES := 
 # environment
@@ -125,7 +137,7 @@ TMPDIR = /var/folders/zf/gxj8b5hn7nz25rg70pfs0yq40000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/hcbowman/Library/Application Support/Code - Insiders/1.71.0-insider-main.sock
+VSCODE_IPC_HOOK = /Users/hcbowman/Library/Application Support/Code - Insiders/1.72.0-insider-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -135,7 +147,9 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCodeInsiders.50398844.50398850
+NVM_DIR = /Users/hcbowman/.nvm
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCodeInsiders.57333720.57333726
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -167,11 +181,13 @@ SUFFIXES :=
 # environment
 MAKELEVEL := 0
 # environment
+GPG_TTY = 
+# environment
 LANG = C
 # environment
-VSCODE_PID = 1275
+VSCODE_PID = 13785
 # variable set hash-table stats:
-# Load=78/1024=8%, Rehash=0, Collisions=2/98=2%
+# Load=86/1024=8%, Rehash=0, Collisions=2/106=2%
 
 # Pattern-specific Variable Values
 
@@ -179,7 +195,7 @@ VSCODE_PID = 1275
 
 # Directories
 
-# . (device 16777231, inode 50008543): 14 files, no impossibilities.
+# . (device 16777230, inode 50008543): 14 files, no impossibilities.
 
 # 14 files, no impossibilities in 1 directories.
 
@@ -253,6 +269,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Mon Aug  8 18:50:13 2022
+# Finished Make data base on Tue Sep  6 20:57:00 2022
 
  

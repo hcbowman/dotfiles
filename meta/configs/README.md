@@ -1,6 +1,8 @@
 # Configs
 
-This folder contains the `Dotbot` commands, `Link, Create, Shell, etc.` that are specific to each dotfile program.
+This folder stores the `Dotbot` commands, `Link, Create, Shell, etc.` that are specific to each dotfile program.
+
+<sup>*See the file `base.yaml` located in `$HOME/.dotfiles/meta`, which contains the Dotbot commands that applies to all programs being installed.*</sup>
 
 ## Usage
 
