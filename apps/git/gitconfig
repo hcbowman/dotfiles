@@ -1,0 +1,29 @@
+# [core]
+# 	excludesfile = ~/.gitignore_global
+# [user]
+# 	name = Hunter Bowman
+# 	email = huntercbowman@icloud.com
+# 	signingkey = C198E8626742501F
+# [commit]
+# 	gpgSign = true
+# [tag]
+# 	forceSignAnnotated = true
+# [gpg]
+# 	program = /opt/homebrew/bin/gpg
+
+[core]
+    excludesfile = /Users/hcbowman/.gitignore_global
+
+[user]
+	name = Hunter Bowman
+	email = huntercbowman@icloud.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILhCz54TcWi35r4dyB1Yii5dI+R9uRQ7EAPVJm+ByISM
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true

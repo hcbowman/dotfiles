@@ -2,3 +2,5 @@
     $HOME/.zshenv: apps/zsh/zshenv
     $HOME/.zprofile: apps/zsh/zprofile
     $HOME/.zshrc: apps/zsh/zshrc
+    $HOME/.zlogin: apps/zsh/zlogin
+    $HOME/.zlogout: apps/zsh/zlogout
