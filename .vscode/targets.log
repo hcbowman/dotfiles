@@ -6,8 +6,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Wed Sep  7 16:44:19 2022
+
+# Make data base, printed on Sun Sep 11 14:18:23 2022
 
 # Variables
 
@@ -17,12 +20,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 ?F = $(notdir $?)
 # environment
 VIRTUALENVWRAPPER_PROJECT_FILENAME = .project
-# environment
-NVM_INC = /Users/hcbowman/.nvm/versions/node/v18.0.0/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-CPPFLAGS = -I/opt/homebrew/opt/readline/include
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
@@ -38,7 +37,7 @@ _ = /usr/bin/make
 # makefile
 MAKEFILE_LIST := 
 # environment
-__CFBundleIdentifier = com.microsoft.VSCodeInsiders
+__CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
@@ -48,7 +47,7 @@ NVM_COMPLETION = true
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /Users/hcbowman/Library/Application Support/cloud-code/installer/google-cloud-sdk/bin:/Users/hcbowman/.emacs.d/bin:/opt/homebrew/opt/openjdk/bin:/Users/hcbowman/.nvm/versions/node/v18.0.0/bin:/Users/hcbowman/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/hcbowman/.cargo/bin:/Users/hcbowman/Library/Application Support/JetBrains/Toolbox/scripts:/Users/hcbowman/google-cloud-sdk/bin
+PATH = /Users/hcbowman/Library/Application Support/cloud-code/installer/google-cloud-sdk/bin:/Users/hcbowman/.emacs.d/bin:/opt/homebrew/opt/openjdk/bin:/Users/hcbowman/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/hcbowman/Library/Application Support/JetBrains/Toolbox/scripts:/Users/hcbowman/google-cloud-sdk/bin
 # environment
 NVM_LAZY_LOAD = true
 # environment
@@ -56,15 +55,11 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
-NVM_BIN = /Users/hcbowman/.nvm/versions/node/v18.0.0/bin
-# environment
-VIRTUALENVWRAPPER_PYTHON = /Users/hcbowman/.pyenv/versions/3.10.1/bin/python3
+VIRTUALENVWRAPPER_PYTHON = /Users/hcbowman/.pyenv/versions/3.10.6/bin/python3
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
 PYENV_ROOT = /Users/hcbowman/.pyenv
-# environment
-LDFLAGS = -L/opt/homebrew/opt/readline/lib
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
@@ -72,7 +67,7 @@ CLOUDSDK_METRICS_ENVIRONMENT = cloudcode.vscode
 # environment
 VIRTUALENVWRAPPER_HOOK_DIR = /Users/hcbowman/.virtualenvs
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.sbjiGK31dR/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.YPWzO6ga7A/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -84,7 +79,7 @@ HOMEBREW_CELLAR = /opt/homebrew/Cellar
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
-MANPATH = /Users/hcbowman/.nvm/versions/node/v18.0.0/share/man:/opt/homebrew/share/man::
+MANPATH = /opt/homebrew/share/man::
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -94,13 +89,11 @@ HOME = /Users/hcbowman
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/hcbowman/Library/Application Support/Code - Insiders/CachedData/0f2de31e4856886cdbf32f85488bc40f480fb38f
+VSCODE_CODE_CACHE_PATH = /Users/hcbowman/Library/Application Support/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
 # environment
 LOGNAME = hcbowman
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# environment
-NVM_CD_FLAGS = -q
 # environment
 ZSH = /Users/hcbowman/.oh-my-zsh
 # environment
@@ -130,11 +123,11 @@ MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
 # default
 .VARIABLES := 
 # environment
-TMPDIR = /var/folders/zf/gxj8b5hn7nz25rg70pfs0yq40000gn/T/
+TMPDIR = /var/folders/gx/b7qj5x6d3zz9g3n_zzqshhhh0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/hcbowman/Library/Application Support/Code - Insiders/1.72.0-insider-main.sock
+VSCODE_IPC_HOOK = /Users/hcbowman/Library/Application Support/Code/1.71.0-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -146,7 +139,7 @@ MFLAGS = -Rrqp
 # environment
 NVM_DIR = /Users/hcbowman/.nvm
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCodeInsiders.57333720.57333726
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.1646114.1646120
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -166,7 +159,7 @@ VIRTUALENVWRAPPER_WORKON_CD = 1
 # automatic
 <F = $(notdir $<)
 # environment
-VIRTUALENVWRAPPER_SCRIPT = /Users/hcbowman/.pyenv/versions/3.10.1/bin/virtualenvwrapper.sh
+VIRTUALENVWRAPPER_SCRIPT = /Users/hcbowman/.pyenv/versions/3.10.6/bin/virtualenvwrapper.sh
 # environment
 PAGER = less
 # environment
@@ -182,9 +175,9 @@ GPG_TTY =
 # environment
 LANG = C
 # environment
-VSCODE_PID = 45763
+VSCODE_PID = 937
 # variable set hash-table stats:
-# Load=86/1024=8%, Rehash=0, Collisions=2/106=2%
+# Load=81/1024=8%, Rehash=0, Collisions=2/101=2%
 
 # Pattern-specific Variable Values
 
@@ -192,7 +185,7 @@ VSCODE_PID = 45763
 
 # Directories
 
-# . (device 16777230, inode 50008543): 14 files, no impossibilities.
+# . (device 16777229, inode 1550474): 14 files, no impossibilities.
 
 # 14 files, no impossibilities in 1 directories.
 
@@ -266,8 +259,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Wed Sep  7 16:44:19 2022
+# Finished Make data base on Sun Sep 11 14:18:23 2022
 
  
-make: *** No rule to make target `all'.  Stop.
-

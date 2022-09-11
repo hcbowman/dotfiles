@@ -24,6 +24,7 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 # For python virtualenvwrapper.sh
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -35,7 +36,7 @@ export WORKON_HOME=~/.virtualenvs
 # If in a given virtual environment, make a virtual environment directory, if one does not already exist.
 mkdir -p $WORKON_HOME
 # Activate the new virtual environment by calling this script. Note that $USER will substitute for your current user
-. ~/.pyenv/versions/3.10.1/bin/virtualenvwrapper.sh
+. ~/.pyenv/versions/3.10.6/bin/virtualenvwrapper.sh
 
 
 # Added by Toolbox App

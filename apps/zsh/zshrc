@@ -7,7 +7,7 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
 
 # DEBUG
-echo "non-WarpTerminal Started"
+#echo "non-WarpTerminal Started"
 
 # NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -107,7 +107,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew zsh-nvm zsh-better-npm-completion)
+plugins=(
+  git 
+  brew 
+  #zsh-nvm 
+  #zsh-better-npm-completion
+  )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -121,7 +126,7 @@ source $ZSH/oh-my-zsh.sh
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
-# else
+# else  
 #   export EDITOR='mvim'
 # fi
 
@@ -143,18 +148,18 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # To fix brew doctor's warning ""config" scripts exist outside your system or Homebrew directorie."
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
-# For compilers to find readline you may need to set:
-export LDFLAGS="-L/opt/homebrew/opt/readline/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
 # 1Password Shell Complition
-eval "$(op completion zsh)"; compdef _op op
+#eval "$(op completion zsh)"; compdef _op op
 
 # Initialize the autocompletion ... I guess oh-my-zsh calls this for us.
 #autoload -Uz compinit && compinit -i

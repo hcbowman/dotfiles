@@ -1,6 +1,6 @@
 # .zshenv(this file) → .zprofile → .zshrc → .zlogin → .zlogout
 
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 
 # DEBUG
 #echo ".zshenv ran"
