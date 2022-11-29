@@ -1,0 +1,19 @@
+
+
+## lukechilds/zsh-nvm
+# Clone zsh-nvm into your custom plugins repo
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+
+# Then load as a plugin in your .zshrc
+plugins+=(zsh-nvm)
+
+## lukechilds/zsh-better-npm-completion
+# Clone zsh-better-npm-completion into your custom plugins repo
+git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion
+
+# Then load as a plugin in your .zshrc
+plugins+=(zsh-better-npm-completion)
+
+## nvm-sh/nvm
+# To actually install the latest version of Node
+nvm install node

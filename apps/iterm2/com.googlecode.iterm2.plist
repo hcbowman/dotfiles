@@ -8,8 +8,12 @@
 	<true/>
 	<key>AutoCommandHistory</key>
 	<false/>
+	<key>BracketedPasteMode</key>
+	<true/>
 	<key>Command</key>
 	<string></string>
+	<key>ConvertDosNewlines</key>
+	<true/>
 	<key>CopySelection</key>
 	<true/>
 	<key>Default Bookmark Guid</key>
@@ -29,6 +33,8 @@
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EnableProxyIcon</key>
+	<false/>
+	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
 	<false/>
@@ -4885,6 +4891,12 @@
 	<false/>
 	<key>OptionClickMovesCursor</key>
 	<true/>
+	<key>PasteSpecialRegex</key>
+	<string></string>
+	<key>PasteSpecialSubstitution</key>
+	<string></string>
+	<key>PasteSpecialUseRegexSubstitution</key>
+	<false/>
 	<key>PerPaneBackgroundImage</key>
 	<true/>
 	<key>PointerActions</key>
@@ -5007,6 +5019,30 @@
 			<string>printf '%s\0' 'aperture waylaid dogged afar are foe orate' | hdiutil attach ~/.util/DMGderp/util.dmg -stdinpass</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>4745FD99-5B16-4635-B853-42E749AAE1FC</string>
+			<key>title</key>
+			<string>uninstall</string>
+			<key>value</key>
+			<string>brew uninstall --zap --verbose --cask tor-browser google-chrome</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>2126EE72-A419-4FAD-8D21-A3E40D61371A</string>
+			<key>title</key>
+			<string>install</string>
+			<key>value</key>
+			<string>brew install --cask google-chrome tor-browser</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>SoundForEsc</key>

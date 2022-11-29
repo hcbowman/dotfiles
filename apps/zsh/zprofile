@@ -20,27 +20,24 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
   '+l:|?=** r:|?=**'
 
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
+
 ## Python Stuff ##
 # For python virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=$(pyenv which python3)
+# Sets the location where the virtual environments should live, the location of your development project directories, and the location of the script installed with this package.
+export WORKON_HOME=$HOME/.virtualenvs #virtual environment directory
+mkdir -p $WORKON_HOME     #make a virtual environment directory, if one does not already exist.
+export PROJECT_HOME=$HOME/Developer/Projects #project working directories
+/Users/hcbowman/.pyenv/shims/virtualenvwrapper.sh
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
-export VIRTUALENVWRAPPER_PYTHON=$(pyenv which python3)
-
-# We want to regularly go to our virtual environment directory
-export WORKON_HOME=~/.virtualenvs
-# If in a given virtual environment, make a virtual environment directory, if one does not already exist.
-mkdir -p $WORKON_HOME
-# Activate the new virtual environment by calling this script. Note that $USER will substitute for your current user
-. ~/.pyenv/versions/3.10.6/bin/virtualenvwrapper.sh
-
-
-# Added by Toolbox App
-export PATH="$PATH:/Users/hcbowman/Library/Application Support/JetBrains/Toolbox/scripts"
 
 # Use export GPG_TTY=$TTY, works anywhere and it’s faster. TTY is a special parameter set by Zsh very early during initialization. It gives you access to the terminal even when stdin might be redirected.
 export GPG_TTY=$TTY

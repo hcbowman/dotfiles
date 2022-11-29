@@ -1,10 +1,14 @@
 # DEBUG
 #echo ".zshrc ran"
 
+# Load aliases.zsh, functions.zsh, etc.
+for file in ~/.dotfiles/apps/zsh/{aliases,functions,starship}.zsh; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
-# Bash and Zsh
+##### Disabled for the Warp terminal after the next line #####
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
 
 # DEBUG
 #echo "non-WarpTerminal Started"
@@ -25,6 +29,7 @@ export NVM_LAZY_LOAD=true
 #vim --version
 #node is now loaded
 
+## Powerlevel10k
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -108,10 +113,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git 
-  brew 
-  #zsh-nvm 
-  #zsh-better-npm-completion
+  zsh-nvm
+  zsh-better-npm-completion
+  git
+  brew
   )
 
 source $ZSH/oh-my-zsh.sh
@@ -142,28 +147,89 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# iTerm2 shell integration
+## iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
+##### Disabled for the Warp terminal above #####
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+##### iTerm.app incompatable stuff below  #####
+if [[ $TERM_PROGRAM != "iTerm.app" ]]; then
 
-# To fix brew doctor's warning ""config" scripts exist outside your system or Homebrew directorie."
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
 
+eval "$(starship init zsh)"
+
+autoload -Uz compinit
+compinit
+fi
+##### iTerm.app incompatable stuff below #####
+
+### PATHS
+# Java Platform, Standard Edition
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+# EMCAS
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
+# Added by JetBrains Toolbox App
+export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
+
+# Pywal
+export PATH="${PATH}:${HOME}/.local/bin/"
+
+#export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
 # 1Password Shell Complition
-#eval "$(op completion zsh)"; compdef _op op
+eval "$(op completion zsh)"; compdef _op op
 
 # Initialize the autocompletion ... I guess oh-my-zsh calls this for us.
 #autoload -Uz compinit && compinit -i
 
 # already in .zprofile?
 #eval "$(pyenv init -)"
+
+### Snips
+
+# OpenSSL
+# A CA file has been bootstrapped using certificates from the system
+# keychain. To add additional certificates, place .pem files in
+#   /opt/homebrew/etc/openssl@3/certs
+
+# and run
+#   /opt/homebrew/opt/openssl@3/bin/c_rehash
+
+# openssl@3 is keg-only, which means it was not symlinked into /opt/homebrew,
+# because macOS provides LibreSSL.
+
+# If you need to have openssl@3 first in your PATH, run:
+#   echo 'export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"' >> ~/.zshrc
+
+# For compilers to find openssl@3 you may need to set:
+#   export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+#   export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+
+# For pkg-config to find openssl@3 you may need to set:
+#   export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+
+# ==> protobuf
+# Emacs Lisp files have been installed to:
+#   /opt/homebrew/share/emacs/site-lisp/protobuf
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/hcbowman/Miniforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/hcbowman/Miniforge/etc/profile.d/conda.sh" ]; then
+        . "/Users/hcbowman/Miniforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/hcbowman/Miniforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
 
