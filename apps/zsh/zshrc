@@ -1,19 +1,10 @@
-# DEBUG
-#echo ".zshrc ran"
-
 # Load aliases.zsh, functions.zsh, etc.
-for file in ~/.dotfiles/apps/zsh/{aliases,functions,starship}.zsh; do
+for file in ~/.dotfiles/apps/zsh/{aliases,functions}.zsh; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
-##### Disabled for the Warp terminal after the next line #####
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-
-# DEBUG
-#echo "non-WarpTerminal Started"
-
-# NVM
+# NVM Directory Location
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
@@ -29,6 +20,8 @@ export NVM_LAZY_LOAD=true
 #vim --version
 #node is now loaded
 
+##### Disabled for the Warp terminal after the next line #####
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ## Powerlevel10k
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -43,69 +36,15 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME=""
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -121,49 +60,28 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else  
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 ## iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 fi
 ##### Disabled for the Warp terminal above #####
 
 ##### iTerm.app incompatable stuff below  #####
 if [[ $TERM_PROGRAM != "iTerm.app" ]]; then
 
-export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
+if [ -r $HOME/.dotfiles/apps/zsh/starship.zsh ] && [ -f $HOME/.dotfiles/apps/zsh/starship.zsh ]; then
+source $HOME/.dotfiles/apps/zsh/starship.zsh
+fi
 
-eval "$(starship init zsh)"
+if [ -r $HOME/.oh-my-zsh/custom/plugins/zsh-nvm ] && [ -f $HOME/.oh-my-zsh/custom/plugins/zsh-nvm ]; then
+source $HOME/.oh-my-zsh/custom/plugins/zsh-nvm
+fi
 
+# The `autoload -Uz compinit` command is used to automatically load the `compinit`` function when it is first called.
+#This can be useful in situations where the completion system is not frequently used and you want to save memory by not having it loaded all the time.
 autoload -Uz compinit
 compinit
 fi
-##### iTerm.app incompatable stuff below #####
+##### iTerm.app incompatable stuff above #####
 
 ### PATHS
 # Java Platform, Standard Edition
@@ -178,12 +96,11 @@ export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 # Pywal
 export PATH="${PATH}:${HOME}/.local/bin/"
 
-#export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-
 # 1Password Shell Complition
 eval "$(op completion zsh)"; compdef _op op
 
-# Initialize the autocompletion ... I guess oh-my-zsh calls this for us.
+# Initialize the autocompletion ... I guess Powerlevel10k calls this for us.
+#FYI The -i flag is used with the compinit command in Zsh to enable the "incremental completion" feature. 
 #autoload -Uz compinit && compinit -i
 
 # already in .zprofile?
@@ -197,7 +114,7 @@ eval "$(op completion zsh)"; compdef _op op
 #   /opt/homebrew/etc/openssl@3/certs
 
 # and run
-#   /opt/homebrew/opt/openssl@3/bin/c_rehash
+#   /opt/homebrew/opt/openssl@3/bin/c_rehash2
 
 # openssl@3 is keg-only, which means it was not symlinked into /opt/homebrew,
 # because macOS provides LibreSSL.
@@ -216,20 +133,22 @@ eval "$(op completion zsh)"; compdef _op op
 # Emacs Lisp files have been installed to:
 #   /opt/homebrew/share/emacs/site-lisp/protobuf
 
+
+
+
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/hcbowman/Miniforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/hcbowman/Miniforge/etc/profile.d/conda.sh" ]; then
-        . "/Users/hcbowman/Miniforge/etc/profile.d/conda.sh"
+    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/hcbowman/Miniforge/bin:$PATH"
+        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-
 

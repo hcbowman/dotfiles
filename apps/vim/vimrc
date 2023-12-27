@@ -1,0 +1,4 @@
+syntax on
+filetype plugin indent on
+set background=dark " You can change 'dark' to 'light' if you prefer a light background
+colorscheme default " You can change 'default' to the name of another colorscheme

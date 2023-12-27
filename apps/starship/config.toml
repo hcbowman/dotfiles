@@ -1,64 +1,53 @@
 # $HOME/.config/starship/config.toml
 
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
-
-# Inserts a blank line between shell prompts
-add_newline = true
-
-# Change command timeout from 500 to 1000 ms
-command_timeout = 1000
-
-# Change the default prompt format
-# ---
-# old config ...
-# format = """\
-# [╭╴](238)$env_var \
-# $all[╰─](238)$character"""
-
 # new config
-format = """$env_var $all"""
+format = """
+$env_var\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$fill\
+$nodejs\
+$cmd_duration $jobs $time"""
 
-# Change the default prompt characters
 [character]
-# old config
-# success_symbol = "[](238)"
-# error_symbol = "[](238)"
-success_symbol = ""
-error_symbol = ""
-# Replace the "❯" symbol in the prompt with "➜"
-#[character] # The name of the module we are configuring is "character"
-#success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+success_symbol = "[❯](#00FF00)"
+error_symbol = "[❯](#FF0000)"
+vicmd_symbol = "[❮](#FF00FF)"
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]
-format = '[$env_value](white)'
+format = '[$env_value](#FFFFFF)'
 variable = "STARSHIP_DISTRO"
 disabled = false
 
 # Shows the username
 [username]
-style_user = "white"
-style_root = "white"
-format = "[$user]($style) "
+style_user = "#00FF00"
+style_root = "#FFFFFF"
+format = "[$user]($style)"
 disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = "on [$hostname](bold yellow) "
+format = "@[$hostname](#FFA500) "
 disabled = false
 
-[directory]
-truncation_length = 1
-truncation_symbol = "…/"
-home_symbol = " ~"
-read_only_style = "197"
-read_only = "  "
-format = "at [$path]($style)[$read_only]($read_only_style) "
+# [directory]
+# truncation_length = 1
+# truncation_symbol = "…/"
+# home_symbol = " ~"
+# read_only_style = "197"
+# read_only = "  "
+# format = "at [$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-symbol = " "
+symbol = " "
 format = "via [$symbol$branch]($style) "
 # truncation_length = 4
 truncation_symbol = "…/"
@@ -79,19 +68,164 @@ staged = '[++\($count\)](green)'
 renamed = "襁 "
 deleted = " "
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
 
-[c]
-format = "via [$name $version]($style)"
+[git_metrics]
+disabled = false
+
+[fill]
+symbol = " "
+
+[nodejs]
+symbol = " "
+format = "[$symbol($version )]($style)"
+
+[cmd_duration]
+format = "[$duration]($style)"
+style = "yellow"
+
+[jobs]
+symbol = ""
+style = "bold red"
+number_threshold = 1
+format = "[$symbol]($style)"
+
+[time]
+disabled = false
+style = "bold white"
+format = "[$time]($style)"
+# format = '🕙[\[ $time \]]($style) '
+# time_format = "%T"
+# utc_time_offset = "-5"
+# time_range = "10:00:00-14:00:00"
+
+[line_break]
+disabled = false
 
 [swift]
 format = "via [🏎  $version](red bold)"
 
-[time]
-disabled = false
-format = '🕙[\[ $time \]]($style) '
-time_format = "%T"
-utc_time_offset = "-5"
-time_range = "10:00:00-14:00:00"
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = "⌘ "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[meson]
+symbol = "喝 "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[os.symbols]
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "﯑ "
+Gentoo = " "
+HardenedBSD = "ﲊ "
+Illumos = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = " "
+openSUSE = " "
+OracleLinux = " "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = " "
+Solus = "ﴱ "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "ﳒ "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
+

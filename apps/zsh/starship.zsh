@@ -1,6 +1,8 @@
 # DEBUG
 #echo "starship.zsh ran"
 
+export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
+
 # find out which distribution we are running on
 LFILE="/etc/*-release"
 MFILE="/System/Library/CoreServices/SystemVersion.plist"
@@ -39,3 +41,5 @@ case $_distro in
 esac
 
 export STARSHIP_DISTRO="$ICON"
+
+eval "$(starship init zsh)"
